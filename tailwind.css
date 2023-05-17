@@ -10,6 +10,7 @@
 
   body {
     background-color: #fff5e1;
+    scrollbar-width: thin;
   }
 
   /** Remove default styles from input[type=number] */

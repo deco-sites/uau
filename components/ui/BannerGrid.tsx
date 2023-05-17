@@ -113,7 +113,7 @@ export default function BannnerGrid({
         ) => (
           <a
             href={href}
-            class={`overflow-hidden rounded-xl
+            class={`overflow-hidden 
             
              `}
           >
@@ -131,7 +131,7 @@ export default function BannnerGrid({
                 height={525}
               />
               <img
-                class="w-full"
+                class="w-full rounded-xl"
                 sizes="(max-width: 640px) 100vw, 30vw"
                 src={srcMobile}
                 alt={alt}
@@ -143,7 +143,13 @@ export default function BannnerGrid({
               <span class="text-primary text-2xl">{title}</span>
             </div>
             <span class="text-xl text-[#1E1E1E] hover:underline">
-              {callToAction} <Icon id="ChevronRight" class="inline" size={10} strokeWidth={2}/>
+              {callToAction}{" "}
+              <Icon
+                id="ChevronRight"
+                class="inline"
+                size={10}
+                strokeWidth={2}
+              />
             </span>
           </a>
         ))}

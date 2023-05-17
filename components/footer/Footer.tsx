@@ -66,9 +66,19 @@ function Footer({ sections = [] }: Props) {
             <Newsletter />
           </FooterContainer>
 
-          <FooterContainer>
+          <FooterContainer class="flex">
+          
             {/* Desktop view */}
             <ul class="hidden sm:flex flex-row gap-20">
+              <li>
+              <a
+              href="/"
+              aria-label="Store logo"
+              class="block px-4 py-3 w-[160px] text-white"
+            >
+              <Icon id="Logo" width={130} height={44} />
+            </a>
+              </li>
               {sections.map((section) => (
                 <li>
                   <div>
