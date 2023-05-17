@@ -1,5 +1,6 @@
 import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
+import Icon from "deco-sites/fashion/components/ui/Icon.tsx";
 
 export interface Banner {
   srcMobile: LiveImage;
@@ -12,6 +13,8 @@ export interface Banner {
    * @description When you click you go to
    */
   href: string;
+  title?: string;
+  callToAction?: string;
 }
 
 export type BorderRadius =
@@ -89,7 +92,7 @@ export default function BannnerGrid({
   banners = [],
 }: Props) {
   return (
-    <section class="container w-full px-4 md:px-0 mx-auto">
+    <section class="container w-full px-4 py-9 md:px-0 mx-auto">
       {title &&
         (
           <div class="py-6 md:py-0 md:pb-[40px] flex items-center mt-6">
@@ -101,16 +104,18 @@ export default function BannnerGrid({
           </div>
         )}
       <div
-        class={`grid gap-4 md:gap-6 ${
+        class={`grid gap-4 md:gap-5 ${
           MOBILE_COLUMNS[itemsPerLine.mobile ?? 2]
         } ${DESKTOP_COLUMNS[itemsPerLine.desktop ?? 4]}`}
       >
-        {banners.map(({ href, srcMobile, srcDesktop, alt }) => (
+        {banners.map((
+          { href, srcMobile, srcDesktop, alt, title, callToAction },
+        ) => (
           <a
             href={href}
-            class={`overflow-hidden ${
-              RADIUS_MOBILE[borderRadius.mobile ?? "none"]
-            } ${RADIUS_DESKTOP[borderRadius.desktop ?? "none"]} `}
+            class={`overflow-hidden rounded-xl
+            
+             `}
           >
             <Picture>
               <Source
@@ -122,8 +127,8 @@ export default function BannnerGrid({
               <Source
                 media="(min-width: 768px)"
                 src={srcDesktop ? srcDesktop : srcMobile}
-                width={250}
-                height={250}
+                width={326}
+                height={525}
               />
               <img
                 class="w-full"
@@ -134,6 +139,12 @@ export default function BannnerGrid({
                 loading="lazy"
               />
             </Picture>
+            <div class="mt-[14px]">
+              <span class="text-primary text-2xl">{title}</span>
+            </div>
+            <span class="text-xl text-[#1E1E1E] hover:underline">
+              {callToAction} <Icon id="ChevronRight" class="inline" size={10} strokeWidth={2}/>
+            </span>
           </a>
         ))}
       </div>

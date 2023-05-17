@@ -86,9 +86,7 @@ function Dots({ images, interval = 0 }: Props) {
           <li class="carousel-item">
             <Slider.Dot index={index}>
               <div class="pb-14">
-                <div
-                  class="w-[11px] h-[11px] rounded-full bg-neutral-300"
-                />
+                <div class="w-[11px] h-[11px] rounded-full bg-neutral-300" />
               </div>
             </Slider.Dot>
           </li>

@@ -7155,6 +7155,20 @@
           "type": "string",
           "description": "When you click you go to",
           "title": "Href"
+        },
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Title"
+        },
+        "callToAction": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Call To Action"
         }
       },
       "required": [
