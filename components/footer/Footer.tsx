@@ -23,7 +23,7 @@ const isIcon = (item: Item): item is IconItem =>
 
 function SectionItem({ item }: { item: Item }) {
   return (
-    <span class="text-primary-content">
+    <span class="text-[#979797] text-xl">
       {isIcon(item)
         ? (
           <div class="border-base-100 border border-solid py-1.5 px-2.5">
@@ -59,37 +59,36 @@ export interface Props {
 
 function Footer({ sections = [] }: Props) {
   return (
-    <footer class="w-full bg-primary flex flex-col divide-y divide-primary-content">
+    <footer class="w-full bg-[url('/footer-bg.jpg')] bg-cover bg-center flex flex-col divide-y divide-[#C2B6B3]">
       <div>
-        <div class="container w-full flex flex-col divide-y divide-primary-content">
+        <div class="container w-full flex flex-col divide-y divide-[#C2B6B3]">
           <FooterContainer>
             <Newsletter />
           </FooterContainer>
 
           <FooterContainer class="flex">
-          
             {/* Desktop view */}
             <ul class="hidden sm:flex flex-row gap-20">
               <li>
-              <a
-              href="/"
-              aria-label="Store logo"
-              class="block px-4 py-3 w-[160px] text-white"
-            >
-              <Icon id="Logo" width={130} height={44} />
-            </a>
+                <a
+                  href="/"
+                  aria-label="Store logo"
+                  class="block px-4 py-3 w-[160px] text-primary"
+                >
+                  <Icon id="Logo" width={130} height={44} />
+                </a>
               </li>
               {sections.map((section) => (
                 <li>
                   <div>
-                    <span class="font-medium text-xl text-primary-content">
+                    <span class="font-semibold text-2xl text-primary">
                       {section.label}
                     </span>
 
                     <ul
                       class={`flex ${
                         isIcon(section.children[0]) ? "flex-row" : "flex-col"
-                      } gap-2 pt-2 flex-wrap`}
+                      } gap-4 pt-2 flex-wrap`}
                     >
                       {section.children.map((item) => (
                         <li>
@@ -127,57 +126,6 @@ function Footer({ sections = [] }: Props) {
                   </span>
                 </li>
               ))}
-            </ul>
-          </FooterContainer>
-        </div>
-      </div>
-
-      <div>
-        <div class="container w-full">
-          <FooterContainer class="flex justify-between w-full">
-            <span class="flex items-center gap-1 text-primary-content">
-              Powered by{" "}
-              <a
-                href="https://www.deco.cx"
-                aria-label="powered by https://www.deco.cx"
-              >
-                <Icon id="Deco" height={20} width={60} strokeWidth={0.01} />
-              </a>
-            </span>
-
-            <ul class="flex items-center justify-center gap-2">
-              <li>
-                <a
-                  href="https://www.instagram.com/deco.cx"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram logo"
-                >
-                  <Icon
-                    class="text-primary-content"
-                    width={32}
-                    height={32}
-                    id="Instagram"
-                    strokeWidth={1}
-                  />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="http://www.deco.cx/discord"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Discord logo"
-                >
-                  <Icon
-                    class="text-primary-content"
-                    width={32}
-                    height={32}
-                    id="Discord"
-                    strokeWidth={5}
-                  />
-                </a>
-              </li>
             </ul>
           </FooterContainer>
         </div>
