@@ -28,24 +28,31 @@ function ProductShelf({
   return (
     <div
       id={id}
-      class="container grid grid-cols-[48px_1fr_48px] grid-rows-[48px_1fr_48px_1fr] py-10 px-0 sm:px-5"
+      class="container flex flex-col py-10 px-0 "
     >
-      <h2 class="text-center row-start-1 col-span-full">
-        <span class="font-medium text-2xl">{title}</span>
-      </h2>
+      <div class="w-full mb-6">
+        <h2 class="row-start-1 col-span-full text-primary">
+          <span class="font-semibold text-[32px]">{title}</span>
+        </h2>
+        <a href="">
+          Ver todos{" "}
+          <Icon id="ChevronRight" size={15} strokeWidth={3} class="inline" />
+        </a>
+      </div>
 
-      <Slider class="carousel carousel-center sm:carousel-end gap-6 col-span-full row-start-2 row-end-5">
+      <Slider class="carousel carousel-center sm:carousel-end col-span-full row-start-2 row-end-5">
         {products?.map((product, index) => (
           <Slider.Item
             index={index}
-            class="carousel-item w-[270px] sm:w-[292px] first:ml-6 sm:first:ml-0 last:mr-6 sm:last:mr-0"
+            class="carousel-item bg-transparent w-[270px] sm:w-1/4 px-[9.5px] box-border"
           >
             <ProductCard product={product} itemListName={title} />
           </Slider.Item>
         ))}
       </Slider>
 
-      <>
+      {
+        /* <>
         <div class="hidden relative sm:block z-10 col-start-1 row-start-3">
           <Slider.PrevButton class="btn btn-circle btn-outline absolute right-1/2 bg-base-100">
             <Icon size={20} id="ChevronLeft" strokeWidth={3} />
@@ -56,7 +63,8 @@ function ProductShelf({
             <Icon size={20} id="ChevronRight" strokeWidth={3} />
           </Slider.NextButton>
         </div>
-      </>
+        </> */
+      }
       <SliderJS rootId={id} />
       <SendEventOnLoad
         event={{
